@@ -1,33 +1,28 @@
 package com.elisvobs.roots;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.core.view.GravityCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.ui.AppBarConfiguration;
 
-import android.view.Menu;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private DrawerLayout mDrawer;
+    private NavigationView mNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,27 +38,27 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        mDrawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+                this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        mNavigationView = findViewById(R.id.nav_view);
+        mNavigationView.setNavigationItemSelectedListener(this);
     }
 
     private void selectNavigationMenuItem(int id) {
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        Menu menu = navigationView.getMenu();
+        mNavigationView = findViewById(R.id.nav_view);
+        Menu menu = mNavigationView.getMenu();
         menu.findItem(id).setChecked(true);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        mDrawer = findViewById(R.id.drawer_layout);
+        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
+            mDrawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
@@ -78,9 +73,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -98,34 +90,30 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-//            fragment = new Home Fragment();
-//        } else if (id == R.id.nav_temp) {
-////            fragment = new Temperature Fragment();
-//        } else if (id == R.id.nav_metric) {
-////            fragment = new Metric Fragment();
-//        } else if (id == R.id.nav_volume) {
-////            fragment = new Volume Fragment();
-//        } else if(id == R.id.nav_weight) {
-////            fragment = new Weight Fragment();
-//        } else if(id == R.id.nav_surface) {
-////            fragment = new Surface Fragment();
-//        } else if(id == R.id.nav_decimal) {
-////            fragment = new Decimal Fragment();
-//        } else if(id == R.id.nav_clothe) {
-////            fragment = new Clothing Fragment();
-//        } else if(id == R.id.nav_paper) {
-////            fragment = new Paper Fragment();
-//        } else if (id == R.id.nav_tyre) {
-////            fragment = new Tyre Fragment();
-//        } else if(id == R.id.nav_us) {
-////            fragment = new Measurement Fragment();
+
+        } else if (id == R.id.nav_preps) {
+            startActivity(new Intent(this, FoodPrepActivity.class));
+        } else if (id == R.id.nav_additive) {
+            startActivity(new Intent(this, AdditiveActivity.class));
+        } else if (id == R.id.nav_foods) {
+            startActivity(new Intent(this, FoodInfoActivity.class));
+        } else if(id == R.id.nav_fruits) {
+            startActivity(new Intent(this, IndigenousFruitsActivity.class));
+        } else if(id == R.id.nav_share) {
+            shareRoots();
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.main_container, fragment).addToBackStack(null).commit();
+        mDrawer = findViewById(R.id.drawer_layout);
+        mDrawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void shareRoots() {
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND)
+                .setType("text/plain")
+                .putExtra(Intent.EXTRA_TEXT,
+                        "I use Roots for Android to learn about local foods");
+        startActivity(Intent.createChooser(shareIntent, "Share link using"));
     }
 }

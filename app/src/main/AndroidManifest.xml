@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".FoodPrepActivity"></activity>
+        <activity android:name=".AdditiveActivity" />
+        <activity android:name=".IndigenousFruitsActivity" />
+        <activity android:name=".FoodInfoActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
