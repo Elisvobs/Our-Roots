@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this, AdditiveActivity.class));
         } else if (id == R.id.nav_foods) {
             startActivity(new Intent(this, FoodInfoActivity.class));
+        } else if (id == R.id.nav_fermented) {
+            startActivity(new Intent(this, FermentedFoodsActivity.class));
         } else if(id == R.id.nav_fruits) {
             startActivity(new Intent(this, IndigenousFruitsActivity.class));
         } else if(id == R.id.nav_share) {

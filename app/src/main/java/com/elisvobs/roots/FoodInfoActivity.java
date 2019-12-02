@@ -2,6 +2,7 @@ package com.elisvobs.roots;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +15,13 @@ public class FoodInfoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    public void onClick(View view) {
+        int id = view.getId();
+        switch (id){
+            case R.id.veg:
+                break;
+        }
+    }
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

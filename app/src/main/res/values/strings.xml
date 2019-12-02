@@ -14,4 +14,5 @@
     <string name="menu_foods">Food Info</string>
     <string name="menu_share">Share</string>
     <string name="menu_fruits">Indigenous Fruits</string>
+    <string name="fermented">Fermented Foods</string>
 </resources>

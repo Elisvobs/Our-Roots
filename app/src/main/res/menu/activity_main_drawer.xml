@@ -21,6 +21,10 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/menu_foods" />
         <item
+            android:id="@+id/nav_fermented"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/fermented" />
+        <item
             android:id="@+id/nav_fruits"
             android:icon="@drawable/ic_menu_send"
             android:title="@string/menu_fruits" />
