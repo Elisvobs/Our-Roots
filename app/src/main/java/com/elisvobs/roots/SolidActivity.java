@@ -9,7 +9,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LegumesActivity extends AppCompatActivity {
+public class SolidActivity extends AppCompatActivity {
     private List<Food> foods;
     RecyclerView mRecyclerView;
     FoodRecyclerViewAdapter recyclerAdapter;
@@ -18,20 +18,23 @@ public class LegumesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foods);
-        setTitle("Legumes & Pulses");
+        setTitle("Solids");
 
         mRecyclerView = findViewById(R.id.food_list);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(recyclerAdapter);
-        listLegumes();
+        listSolids();
     }
 
-    private void listLegumes() {
+    private void listSolids() {
         foods = new ArrayList<>();
-        foods.add(new Food("Nyemba"));
-        foods.add(new Food("Nyimo"));
-        foods.add(new Food("Rupiza"));
+        foods.add(new Food("Mabumbe"));
+        foods.add(new Food("Makwaya"));
+        foods.add(new Food("Manhanga"));
+        foods.add(new Food("Mashamba"));
+        foods.add(new Food("Mutakura"));
+        foods.add(new Food("Nhopi"));
     }
 
     @Override

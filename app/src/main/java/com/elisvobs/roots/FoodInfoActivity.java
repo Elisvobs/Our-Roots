@@ -19,6 +19,20 @@ public class FoodInfoActivity extends AppCompatActivity {
         int id = view.getId();
         switch (id){
             case R.id.veg:
+                startActivity(new Intent(this, VegetableActivity.class));
+                finish();
+                break;
+            case R.id.solid:
+                startActivity(new Intent(this, SolidActivity.class));
+                finish();
+                break;
+            case  R.id.mushroom:
+                startActivity(new Intent(this, MushroomActivity.class));
+                finish();
+                break;
+            case R.id.legume:
+                startActivity(new Intent(this, LegumeActivity.class));
+                finish();
                 break;
         }
     }
