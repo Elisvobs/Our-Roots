@@ -15,4 +15,10 @@
     <string name="menu_share">Share</string>
     <string name="menu_fruits">Indigenous Fruits</string>
     <string name="fermented">Fermented Foods</string>
+    <string name="en">English</string>
+    <string name="nr">Ndebele</string>
+    <string name="sn">Shona</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="language_settings">Change Language</string>
+    <string name="lang_dialog_title">Choose Language</string>
 </resources>

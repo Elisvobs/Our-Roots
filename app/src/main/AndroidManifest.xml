@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VegetableActivity"></activity>
+        <activity android:name=".LanguageActivity"></activity>
+        <activity android:name=".VegetableActivity" />
         <activity android:name=".MushroomActivity" />
         <activity android:name=".LegumeActivity" />
         <activity android:name=".SolidActivity" />

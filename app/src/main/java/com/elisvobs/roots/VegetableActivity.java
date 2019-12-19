@@ -4,14 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class VegetableActivity extends AppCompatActivity {
-    private List<Food> foods;
-    RecyclerView mRecyclerView;
     FoodRecyclerViewAdapter recyclerAdapter;
 
     @Override
@@ -19,16 +18,13 @@ public class VegetableActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foods);
         setTitle("Vegetables");
-
-        mRecyclerView = findViewById(R.id.food_list);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setAdapter(recyclerAdapter);
         listVegetable();
     }
 
     private void listVegetable() {
-        foods = new ArrayList<>();
+        final RecyclerView mRecyclerView = findViewById(R.id.food_list);
+        final List<Food> foods = new ArrayList<>();
+
         foods.add(new Food("Bupwe"));
         foods.add(new Food("Chembere Dzagumhana"));
         foods.add(new Food("Derere rechipudzi"));
@@ -43,11 +39,29 @@ public class VegetableActivity extends AppCompatActivity {
         foods.add(new Food("Nyemba"));
         foods.add(new Food("Nyevhe"));
         foods.add(new Food("Tsunga"));
+
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(layoutManager);
+        recyclerAdapter = new FoodRecyclerViewAdapter(foods);
+        mRecyclerView.setAdapter(recyclerAdapter);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         recyclerAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, FoodInfoActivity.class));
+        finish();
     }
 }

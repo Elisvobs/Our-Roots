@@ -4,14 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SolidActivity extends AppCompatActivity {
-    private List<Food> foods;
-    RecyclerView mRecyclerView;
     FoodRecyclerViewAdapter recyclerAdapter;
 
     @Override
@@ -20,26 +19,42 @@ public class SolidActivity extends AppCompatActivity {
         setContentView(R.layout.activity_foods);
         setTitle("Solids");
 
-        mRecyclerView = findViewById(R.id.food_list);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setAdapter(recyclerAdapter);
         listSolids();
     }
 
     private void listSolids() {
-        foods = new ArrayList<>();
+        final List<Food> foods  = new ArrayList<>();
+        final RecyclerView mRecyclerView = findViewById(R.id.food_list);
+
         foods.add(new Food("Mabumbe"));
         foods.add(new Food("Makwaya"));
         foods.add(new Food("Manhanga"));
         foods.add(new Food("Mashamba"));
         foods.add(new Food("Mutakura"));
         foods.add(new Food("Nhopi"));
+
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(layoutManager);
+        recyclerAdapter = new FoodRecyclerViewAdapter(foods);
+        mRecyclerView.setAdapter(recyclerAdapter);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         recyclerAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, FoodInfoActivity.class));
+        finish();
     }
 }
