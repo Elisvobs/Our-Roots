@@ -19,8 +19,8 @@
         android:layout_marginBottom="8dp"
         android:clickable="true"
         android:onClick="onClick"
-        app:layout_constraintBottom_toTopOf="@+id/legumes"
-        app:layout_constraintEnd_toStartOf="@+id/mushroooms"
+        app:layout_constraintBottom_toTopOf="@+id/legume"
+        app:layout_constraintEnd_toStartOf="@+id/mushroom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -59,7 +59,7 @@
         android:layout_marginBottom="8dp"
         android:clickable="true"
         android:onClick="onClick"
-        app:layout_constraintBottom_toTopOf="@+id/solids"
+        app:layout_constraintBottom_toTopOf="@+id/solid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/veg"
         app:layout_constraintTop_toTopOf="parent" >
@@ -100,7 +100,7 @@
         android:clickable="true"
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/solids"
+        app:layout_constraintEnd_toStartOf="@+id/solid"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/veg" >
 
@@ -141,8 +141,8 @@
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/legumes"
-        app:layout_constraintTop_toBottomOf="@+id/mushroooms" >
+        app:layout_constraintStart_toEndOf="@+id/legume"
+        app:layout_constraintTop_toBottomOf="@+id/mushroom" >
 
         <LinearLayout
             android:layout_width="match_parent"
