@@ -9,28 +9,24 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_preps"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_preps" />
-        <item
             android:id="@+id/nav_additive"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_additive" />
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/additive" />
         <item
-            android:id="@+id/nav_foods"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_foods" />
+            android:id="@+id/nav_preps"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/preps" />
         <item
             android:id="@+id/nav_fermented"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/fermented" />
         <item
-            android:id="@+id/nav_fruits"
-            android:icon="@drawable/ic_menu_send"
-            android:title="@string/menu_fruits" />
+            android:id="@+id/nav_fruit"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/fruits" />
         <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/ic_menu_share"
-            android:title="@string/menu_share" />
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/about" />
     </group>
 </menu>

@@ -36,7 +36,6 @@ public class VegetableActivity extends AppCompatActivity {
         foods.add(new Food("Nyamatepo"));
         foods.add(new Food("Nyemba"));
         foods.add(new Food("Nyenje"));
-        foods.add(new Food("Nyemba"));
         foods.add(new Food("Nyevhe"));
         foods.add(new Food("Tsunga"));
 

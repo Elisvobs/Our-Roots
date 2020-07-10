@@ -3,17 +3,17 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Roots</string>
+    <string name="nav_header_subtitle">Taking pride in traditional foods.</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_preps">Food Prep</string>
-    <string name="menu_additive">Additive Prep</string>
+    <string name="preps">Food Preparation</string>
+    <string name="additive">Additive </string>
     <string name="menu_foods">Food Info</string>
     <string name="menu_share">Share</string>
-    <string name="menu_fruits">Indigenous Fruits</string>
+    <string name="fruits">Indigenous Fruits</string>
     <string name="fermented">Fermented Foods</string>
     <string name="en">English</string>
     <string name="nr">Ndebele</string>
@@ -21,4 +21,6 @@
     <string name="action_cancel">Cancel</string>
     <string name="language_settings">Change Language</string>
     <string name="lang_dialog_title">Choose Language</string>
+    <string name="about">About</string>
+    <string name="text">Text!</string>
 </resources>
