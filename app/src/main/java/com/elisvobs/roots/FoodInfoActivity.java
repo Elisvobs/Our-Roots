@@ -1,7 +1,10 @@
 package com.elisvobs.roots;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -19,6 +22,7 @@ public class FoodInfoActivity extends AppCompatActivity implements ListFragment.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_home);
         boolean isTablet = getResources().getBoolean(R.bool.is_tablet);
         if (! isTablet){
             ListFragment savedFragment = (ListFragment) getSupportFragmentManager().findFragmentByTag(LIST_FRAGMENT);
@@ -40,11 +44,7 @@ public class FoodInfoActivity extends AppCompatActivity implements ListFragment.
                 fragmentTransaction.commit();
             }
         }
-        setContentView(R.layout.activity_food_info);
-//        setTitle(Recipes.names[index]);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
 
     @Override
     public void onListRecipeSelected(int index) {
@@ -72,37 +72,16 @@ public class FoodInfoActivity extends AppCompatActivity implements ListFragment.
         fragmentTransaction.commit();
     }
 
-//    public void onClick(View view) {
-//        int id = view.getId();
-//        switch (id){
-//            case R.id.veg:
-//                startActivity(new Intent(this, VegetableActivity.class));
-//                finish();
-//                break;
-//            case R.id.solid:
-//                startActivity(new Intent(this, SolidActivity.class));
-//                finish();
-//                break;
-//            case  R.id.mushroom:
-//                startActivity(new Intent(this, MushroomActivity.class));
-//                finish();
-//                break;
-//            case R.id.legume:
-//                startActivity(new Intent(this, LegumeActivity.class));
-//                finish();
-//                break;
-//        }
-//    }
-
     @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-//        startActivity(new Intent(this, MainActivity.class));
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        return super.onOptionsItemSelected(item);
     }
 }

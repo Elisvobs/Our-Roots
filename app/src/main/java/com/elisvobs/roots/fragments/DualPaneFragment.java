@@ -22,12 +22,15 @@ public class DualPaneFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        int index = getArguments() != null ? getArguments().getInt(ViewPagerFragment.KEY_RECIPE_INDEX) : 0;
-        Toast.makeText(getActivity(), Recipes.names[index], Toast.LENGTH_SHORT).show();
+        int index = getArguments() != null ? getArguments().getInt(
+                ViewPagerFragment.KEY_RECIPE_INDEX) : 0;
+        Toast.makeText(getActivity(), Recipes.names[index],
+                Toast.LENGTH_SHORT).show();
         getActivity().setTitle(Recipes.names[index]);
         View view = inflater.inflate(R.layout.fragment_dualpane, container,false);
 
-        FragmentManager fragmentManager = getChildFragmentManager();
+//        FragmentManager fragmentManager = getChildFragmentManager();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
         IngredientsFragment savedIngredientsFragment = (IngredientsFragment) fragmentManager.
                 findFragmentByTag(INGREDIENTS_FRAGMENT);
@@ -36,7 +39,8 @@ public class DualPaneFragment extends Fragment {
             Bundle bundle = new Bundle();
             bundle.putInt(ViewPagerFragment.KEY_RECIPE_INDEX, index);
             ingredientsFragment.setArguments(bundle);
-            fragmentManager.beginTransaction().add(R.id.leftPlaceholder, ingredientsFragment, INGREDIENTS_FRAGMENT).commit();
+            fragmentManager.beginTransaction().add(R.id.leftPlaceholder,
+                    ingredientsFragment, INGREDIENTS_FRAGMENT).commit();
         }
 
         DirectionsFragment savedDirectionsFragment = (DirectionsFragment) fragmentManager.

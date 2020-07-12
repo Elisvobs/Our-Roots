@@ -40,6 +40,7 @@ public class ViewPagerFragment extends Fragment {
 
         ViewPager viewPager = view.findViewById(R.id.viewPager);
         viewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
+//        viewPager.setAdapter(new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
             @NonNull
             @Override
             public Fragment getItem(int position) {
@@ -69,4 +70,5 @@ public class ViewPagerFragment extends Fragment {
         super.onStop();
         getActivity().setTitle(getResources().getString(R.string.app_name));
     }
+
 }

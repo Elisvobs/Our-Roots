@@ -25,6 +25,7 @@ public class GridFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         OnRecipeSelectedInterface listener = (OnRecipeSelectedInterface) getActivity();
+//        OnRecipeSelectedInterface listener = (OnRecipeSelectedInterface) getParentFragment();
         View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);

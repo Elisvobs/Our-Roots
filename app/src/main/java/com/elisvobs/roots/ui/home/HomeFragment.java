@@ -19,7 +19,7 @@ import com.elisvobs.roots.fragments.ListFragment;
 import com.elisvobs.roots.model.Recipes;
 import com.elisvobs.roots.utils.ViewPagerFragment;
 
-public class HomeFragment extends Fragment implements ListFragment.OnRecipeSelectedInterface, GridFragment.OnRecipeSelectedInterface {
+public class HomeFragment extends Fragment  {
     private static final String LIST_FRAGMENT = "list_fragment";
     private static final String VIEWPAGER_FRAGMENT = "viewpager_fragment";
     private static final String KEY_RECIPE_INDEX = "recipe_index";
@@ -60,29 +60,29 @@ public class HomeFragment extends Fragment implements ListFragment.OnRecipeSelec
         }
     }
 
-    @Override
-    public void onListRecipeSelected(int index) {
-        ViewPagerFragment fragment = new ViewPagerFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt(ViewPagerFragment.KEY_RECIPE_INDEX, index);
-        fragment.setArguments(bundle);
-        FragmentManager fragmentManager = getChildFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.placeHolder, fragment, VIEWPAGER_FRAGMENT);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
-    @Override
-    public void onGridRecipeSelected(int index) {
-        DualPaneFragment fragment = new DualPaneFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt(ViewPagerFragment.KEY_RECIPE_INDEX, index);
-        fragment.setArguments(bundle);
-        FragmentManager fragmentManager = getChildFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.placeHolder, fragment, VIEWPAGER_FRAGMENT);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
+//    @Override
+//    public void onListRecipeSelected(int index) {
+//        ViewPagerFragment fragment = new ViewPagerFragment();
+//        Bundle bundle = new Bundle();
+//        bundle.putInt(ViewPagerFragment.KEY_RECIPE_INDEX, index);
+//        fragment.setArguments(bundle);
+//        FragmentManager fragmentManager = getChildFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.placeHolder, fragment, VIEWPAGER_FRAGMENT);
+//        fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.commit();
+//    }
+//
+//    @Override
+//    public void onGridRecipeSelected(int index) {
+//        DualPaneFragment fragment = new DualPaneFragment();
+//        Bundle bundle = new Bundle();
+//        bundle.putInt(ViewPagerFragment.KEY_RECIPE_INDEX, index);
+//        fragment.setArguments(bundle);
+//        FragmentManager fragmentManager = getChildFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.placeHolder, fragment, VIEWPAGER_FRAGMENT);
+//        fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.commit();
+//    }
 }

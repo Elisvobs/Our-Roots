@@ -20,11 +20,11 @@ public class MushroomActivity extends AppCompatActivity {
         setContentView(R.layout.activity_foods);
         setTitle("Mushrooms");
 
-        mRecyclerView = findViewById(R.id.food_list);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setAdapter(recyclerAdapter);
-        listMushroom();
+//        mRecyclerView = findViewById(R.id.food_list);
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+//        mRecyclerView.setLayoutManager(layoutManager);
+//        mRecyclerView.setAdapter(recyclerAdapter);
+//        listMushroom();
     }
 
     private void listMushroom() {
@@ -36,6 +36,6 @@ public class MushroomActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        recyclerAdapter.notifyDataSetChanged();
+//        recyclerAdapter.notifyDataSetChanged();
     }
 }
