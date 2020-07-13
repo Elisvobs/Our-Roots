@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            keyAlias = 'upload'
+            keyPassword 'Elishum#7.'
+            storePassword 'Elishum#7.'
+            storeFile file('C:\\Users\\Elisvobs\\keystores\\upload-keystore.jks')
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion "28.0.3"
     defaultConfig {
@@ -13,9 +21,15 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            multiDexEnabled = true
+            signingConfig signingConfigs.release
         }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
     }
 }
 
