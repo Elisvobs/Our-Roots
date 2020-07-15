@@ -27,8 +27,10 @@ public abstract class CheckBoxesFragment extends Fragment {
 
         LinearLayout linearLayout = view.findViewById(R.id.checkBoxesLayout);
         String[] contents = getContents(index);
+
         mCheckBoxes = new CheckBox[contents.length];
         boolean[] checkedBoxes = new boolean[mCheckBoxes.length];
+
         if (savedInstanceState != null && savedInstanceState.getBooleanArray(KEY_CHECKED_BOXES) != null) {
             checkedBoxes = savedInstanceState.getBooleanArray(KEY_CHECKED_BOXES);
         }
@@ -42,16 +44,19 @@ public abstract class CheckBoxesFragment extends Fragment {
     private void setUpCheckBoxes(String[] contents, ViewGroup container, boolean[] checkedBoxes) {
         int i = 0;
         for (String content: contents){
-            mCheckBoxes[i]  = new CheckBox(getActivity());
+            mCheckBoxes[i]  = new CheckBox(requireActivity());
             mCheckBoxes[i].setPadding(8,16,8,16);
             mCheckBoxes[i].setTextSize(20f);
             mCheckBoxes[i].setText(content);
             container.addView(mCheckBoxes[i]);
+
             if (checkedBoxes[i]){
                 mCheckBoxes[i].toggle();
             }
+
             i++;
         }
+
     }
 
     @Override
@@ -62,7 +67,9 @@ public abstract class CheckBoxesFragment extends Fragment {
             stateOfCheckBoxes[i] = checkBox.isChecked();
             i++;
         }
+
         outState.putBooleanArray(KEY_CHECKED_BOXES, stateOfCheckBoxes);
         super.onSaveInstanceState(outState);
     }
+
 }

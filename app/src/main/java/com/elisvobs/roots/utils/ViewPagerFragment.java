@@ -24,23 +24,23 @@ public class ViewPagerFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        int index = getArguments() != null ? getArguments().getInt(KEY_RECIPE_INDEX) : 0;
-        Toast.makeText(getActivity(), Recipes.names[index], Toast.LENGTH_SHORT).show();
-        getActivity().setTitle(Recipes.names[index]);
-        View view = inflater.inflate(R.layout.fragment_viewpager, container,false);
+        int index = getArguments() != null
+                ? getArguments().getInt(KEY_RECIPE_INDEX) : 0;
+        Toast.makeText(requireActivity(), Recipes.names[index],
+                Toast.LENGTH_SHORT).show();
+        requireActivity().setTitle(Recipes.names[index]);
+
+        View view = inflater.inflate(R.layout.fragment_viewpager,
+                container,false);
 
         final IngredientsFragment ingredientsFragment = new IngredientsFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt(KEY_RECIPE_INDEX, index);
-        ingredientsFragment.setArguments(bundle);
+        addIndex(index, ingredientsFragment);
+
         final DirectionsFragment directionsFragment = new DirectionsFragment();
-        bundle = new Bundle();
-        bundle.putInt(KEY_RECIPE_INDEX, index);
-        directionsFragment.setArguments(bundle);
+        addIndex(index, directionsFragment);
 
         ViewPager viewPager = view.findViewById(R.id.viewPager);
-        viewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
-//        viewPager.setAdapter(new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
+        viewPager.setAdapter(new FragmentPagerAdapter(requireActivity().getSupportFragmentManager()) {
             @NonNull
             @Override
             public Fragment getItem(int position) {
@@ -65,10 +65,16 @@ public class ViewPagerFragment extends Fragment {
         return view;
     }
 
+    private void addIndex(int index, Fragment fragment) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(KEY_RECIPE_INDEX, index);
+        fragment.setArguments(bundle);
+    }
+
     @Override
     public void onStop() {
         super.onStop();
-        getActivity().setTitle(getResources().getString(R.string.app_name));
+        requireActivity().setTitle(getResources().getString(R.string.app_name));
     }
 
 }

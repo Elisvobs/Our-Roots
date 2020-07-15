@@ -58,5 +58,7 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter {
         public void onClick(View v) {
             onRecipeSelected(mIndex);
         }
+
     }
+
 }

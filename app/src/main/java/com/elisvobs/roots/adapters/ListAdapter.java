@@ -20,4 +20,5 @@ public class ListAdapter extends RecyclerAdapter {
     protected void onRecipeSelected(int index) {
         mListener.onListRecipeSelected(index);
     }
+
 }

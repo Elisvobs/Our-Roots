@@ -23,4 +23,6 @@
     <string name="lang_dialog_title">Choose Language</string>
     <string name="about">About</string>
     <string name="text">Text!</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
 </resources>

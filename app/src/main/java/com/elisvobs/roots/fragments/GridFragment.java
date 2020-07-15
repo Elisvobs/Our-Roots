@@ -24,19 +24,22 @@ public class GridFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        OnRecipeSelectedInterface listener = (OnRecipeSelectedInterface) getActivity();
-//        OnRecipeSelectedInterface listener = (OnRecipeSelectedInterface) getParentFragment();
+        OnRecipeSelectedInterface listener = (OnRecipeSelectedInterface) requireActivity();
+
         View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         GridAdapter gridAdapter = new GridAdapter(listener);
         recyclerView.setAdapter(gridAdapter);
+
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
         int numColumns = (int) (dpWidth / 200);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(), numColumns);
+
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(requireActivity(), numColumns);
         recyclerView.setLayoutManager(layoutManager);
 
         return view;
     }
+
 }

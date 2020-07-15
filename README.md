@@ -9,9 +9,8 @@
 
 ## App Description
 - Display recipes of foods of different categories
-- Shows the traditional methods used for preparing food and crafting local additives
-- Share the app download link with preferred platform
-- Includes information of wild fruits available in Zimbabwe
+- Shows the traditional methods used for crafting local food additives
+<!-- - Includes information of wild fruits available in Zimbabwe -->
 
 ## Screenshot
 <img src="" width="300"/>
@@ -23,7 +22,7 @@
 
 ## License & Copyright
 
-Copyright (c) 2020 Elias Svoba, Infixus Tech
+Copyright (c) 2020 Infixus Tech
 
 Me, the author of the project, allow you to check the code as a reference.
 Beside the above, the following license applies and this license notice 

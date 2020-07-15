@@ -23,8 +23,7 @@ public class ListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        OnRecipeSelectedInterface listener = (OnRecipeSelectedInterface) getActivity();
-//        OnRecipeSelectedInterface listener = (OnRecipeSelectedInterface) getParentFragment();
+        OnRecipeSelectedInterface listener = (OnRecipeSelectedInterface) requireActivity();
         View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
@@ -32,8 +31,9 @@ public class ListFragment extends Fragment {
         ListAdapter listAdapter = new ListAdapter(listener);
         recyclerView.setAdapter(listAdapter);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(
-                getActivity(), 2);
+                requireActivity(), 2);
         recyclerView.setLayoutManager(layoutManager);
         return view;
     }
+
 }
