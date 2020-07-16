@@ -60,14 +60,14 @@ public class AdditiveActivity extends AppCompatActivity {
 //            case R.id.previous:
 //                if (currentIndex > 0) {
 //                    currentIndex = currentIndex - 1;
-//                    switcher.setBackgroundResource(PRODUCTS[currentIndex]);
+//                    switcher.setBackgroundResource(ADDITIVES[currentIndex]);
 //                }
 //                break;
 //
 //            case R.id.next:
-//                if (currentIndex < PRODUCTS.length - 1) {
+//                if (currentIndex < ADDITIVES.length - 1) {
 //                    currentIndex = currentIndex + 1;
-//                    switcher.setBackgroundResource(PRODUCTS[currentIndex]);
+//                    switcher.setBackgroundResource(ADDITIVES[currentIndex]);
 //                }
 //                break;
 //        }

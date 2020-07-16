@@ -28,7 +28,7 @@ public class DataManager {
         mAdditives.add(new Additive("Peanut butter"));
         mAdditives.add(new Additive("Baobab seeds"));
         mAdditives.add(new Additive("Legume flour"));
-        mAdditives.add(new Additive("Mabumbe"));
+        mAdditives.add(new Additive(""));
     }
 
 }

@@ -13,8 +13,9 @@
 <!-- - Includes information of wild fruits available in Zimbabwe -->
 
 ## Screenshot
-<img src="" width="300"/>
-<img src="" width="300"/>
+<img src="screenshots/main.jpg" width="300"/>
+<img src="screenshots/ad.jpg" width="300"/>
+<img src="screenshots/la.jpg" width="300"/>
 
 ## Contributors
 - Elias Svoba <elias@infixustech.co.zw>
