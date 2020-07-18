@@ -1,7 +1,6 @@
 package com.elisvobs.roots;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -16,20 +15,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Locale;
 
 public class LanguageActivity extends AppCompatActivity {
+    private Configuration config;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-        Configuration config = getBaseContext().getResources().getConfiguration();
+        config = getBaseContext().getResources().getConfiguration();
         String lang = settings.getString("LANG", "");
         if (! "".equals(lang) && ! config.locale.getLanguage().equals(lang)) {
-            Locale locale = new Locale(lang);
-            Locale.setDefault(locale);
-            config.locale = locale;
-            getBaseContext().getResources().updateConfiguration(config,
-                    getBaseContext().getResources().getDisplayMetrics());
-        }   showLanguageDialog();
+            localeConfig(lang, config);
+        }
+        showLanguageDialog();
     }
 
     public void showLanguageDialog() {
@@ -41,45 +38,45 @@ public class LanguageActivity extends AppCompatActivity {
         final RadioGroup radioGroup = dialogView.findViewById(R.id.radioGroup);
 
         builder.setTitle(getResources().getString(R.string.lang_dialog_title))
-                .setPositiveButton(R.string.language_settings, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        int languagePosition = radioGroup.getCheckedRadioButtonId();
-                        switch(languagePosition) {
-                            case R.id.en: //English
-                                PreferenceManager.getDefaultSharedPreferences(getBaseContext()).
-                                        edit().putString("LANG", "en").apply();
-                                setLanguage("en");
-                                finish();
-                                break;
-                            case R.id.sn: //Shona
-                                PreferenceManager.getDefaultSharedPreferences(getBaseContext()).
-                                        edit().putString("LANG", "sn").apply();
-                                setLanguage("sn");
-                                finish();
-                                break;
-                            case R.id.nr: //Ndebele
-                                PreferenceManager.getDefaultSharedPreferences(getBaseContext()).
-                                        edit().putString("LANG", "nr").apply();
-                                setLanguage("nr");
-                                finish();
-                                break;
-                            default: //By default set to english
-                                break;
-                        }
+                .setPositiveButton(R.string.language_settings, (dialog, whichButton) -> {
+                    int languagePosition = radioGroup.getCheckedRadioButtonId();
+                    switch(languagePosition) {
+                        case R.id.en: //English
+                            changeLanguage("en");
+                            finish();
+                            break;
+                        case R.id.sn: //Shona
+                            changeLanguage("sn");
+                            finish();
+                            break;
+                        case R.id.nr: //Ndebele
+                            changeLanguage("nr");
+                            finish();
+                            break;
+                        default: //By default set to english
+                            break;
                     }
-                }).setNegativeButton(R.string.action_cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                finish();
-            }
-        }).create().show();
+                }).setNegativeButton(R.string.action_cancel,
+                (dialog, whichButton) -> finish()).create().show();
+    }
+
+    private void changeLanguage(String language) {
+        PreferenceManager.getDefaultSharedPreferences(getBaseContext()).
+                edit().putString("LANG", language).apply();
+        setLanguage(language);
     }
 
     public void setLanguage(String language) {
-        Configuration config = getApplicationContext().getResources().getConfiguration();
-        Locale locale = new Locale(language);
+        config = getApplicationContext().getResources().getConfiguration();
+        localeConfig(language, config);
+    }
+
+    private void localeConfig(String lang, Configuration config) {
+        Locale locale = new Locale(lang);
         Locale.setDefault(locale);
         config.locale = locale;
         getBaseContext().getResources().updateConfiguration(config,
                 getBaseContext().getResources().getDisplayMetrics());
     }
+
 }

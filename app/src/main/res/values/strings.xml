@@ -25,4 +25,21 @@
     <string name="text">Text!</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
+    <string name="trad">Traditional Recipes</string>
+    <string name="soda">Traditional soda/Utyora</string>
+    <string name="hacha">Hacha fruit syrup</string>
+    <string name="pumpkin">Pumpkin seed oil</string>
+    <string name="tsunga_seeds">Tsunga seeds oil</string>
+    <string name="peanut">Peanut butter</string>
+    <string name="baobab">Baobab seeds</string>
+    <string name="legume_flour">Legume flour</string>
+    <string name="credits">Credits</string>
+    <string name="eula">LICENSE AGREEMENT</string>
+    <string name="privacy">PRIVACY POLICY</string>
+    <string name="license">Software License Agreement</string>
+    <string name="accept">Accept</string>
+    <string name="refuse">Refuse</string>
+    <string name="policy">Privacy Policy</string>
+    <string name="thanks">AMAZING THANKS FOR SHARING CONTENT</string>
+    <string name="copy">Copyright Credits</string>
 </resources>

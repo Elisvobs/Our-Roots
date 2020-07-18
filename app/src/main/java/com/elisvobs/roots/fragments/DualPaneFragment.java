@@ -59,7 +59,7 @@ public class DualPaneFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        requireActivity().setTitle(getResources().getString(R.string.app_name));
+        requireActivity().setTitle(getResources().getString(R.string.trad));
     }
 
 }

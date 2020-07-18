@@ -15,6 +15,7 @@ public class Recipes {
             "Nhanga",
             "Nhopi",
             "Makwaya",
+            "Mabumbe",
             "Nyenje",
             "Derere Rechipudzi",
             "Okra Soup",
@@ -44,6 +45,7 @@ public class Recipes {
             R.drawable.nhanga,
             R.drawable.nhopi,
             R.drawable.makwaya,
+            R.drawable.mabumbe,
             R.drawable.nyenje,
             R.drawable.okra,
             R.drawable.okrasoup,
@@ -73,6 +75,7 @@ public class Recipes {
             "Nhanga`Water`(Salt optional)",
             "Manhanga/mashamba`Water`Salt`Peanut butter`Sorghum/millet/maize meal`(Sugar optional)",
             "Pumpkin seeds`Water`Salt",
+            "Roasted Pumpkin seeds`Water`Pumpkin leaves",
             "Nyenje leaves (fresh or dried)`Salt`Soda/utyora`Tomatoes",
             "Okra`Water`Salt`Soda`Tomatoes",
             "Okra`Water`Salt`Flour`Peanut butter",
@@ -102,6 +105,7 @@ public class Recipes {
             "Wash the pumpkin.`Slice the pumpkin and remove the seeds.`Put the sliced pumpkin into a saucepan with little water and boil till tender.`Salt may be added.`Serve warm or cold.",
             "Slice the pumpkin, peel it and remove the seeds.`Put the sliced pumpkin into a saucepan with little water and boil till tender, stirring constantly with a wooden spoon.`Add a little sorghum/millet/maize meal and mix thoroughly to make a thick paste.`Add a pinch of salt and peanut butter then continue to mix.`Reduce heat and simmer for 5 - 10 minutes.",
             "Roast the dried pumpkin seeds with a little water and salt.`Stir continuously until the water evaporates and the seeds are dry.",
+            "Pound roasted dried pumpkin seeds until a fine paste is obtained.`Add little water and shape into balls.`Bake the balls wrapped in pumpkin leaves until soft and tasty",
             "Put water, soda, salt and sliced tomatoes in a saucepan and boil.`Stir vigorously and continuously with a wooden spoon for about 15 minutes.`Add sliced nyenje leaves and stir thoroughly.`Reduce heat and simmer for 3 - 5 minutes.",
             "Wash okra pods in cold water.`Cut the pods into thin slices.`Put water, salt and soda in a saucepan and bring to the boil.`Add the sliced pods and boil for about 15 minutes.`Add sliced tomatoes to the saucepan.`Stir the vegetables with a wooden for about 3 - 5 minutes.`Add salt to taste.`Serve warm or cold",
             "Slice the okra pods.`Put water, salt and soda in a saucepan and bring to the boil.`Add the sliced pods and boil until tender.`Mix a little water and flour in a bowl to make a thin slurry.`Add the mixture to the okra and stir with a wooden spoon.`Add peanut butter.`Reduce heat and simmer for 7 - 10 minutes.",
@@ -119,8 +123,8 @@ public class Recipes {
             "Soak the mushrooms in cold water for a minute.`Boil the mushrooms in salted water for a minute.`Drain the mushroom and put to one side.`Boil water in a saucepan.`Add sliced tomatoes and boil till tender.`Add peanut butter and stir with a wooden spoon until the paste is thick.`Add the mushroom and stir.`Reduce heat and simmer for 5 minutes.",
     };
 
-    public static String [] nutrients = new String [] {
-            "Health benefits of eating zviyo include helping with weight loss, lowering blood cholesterol levels, regulating blood sugar levels especially for those who suffer from diabetes"
-    };
+//    public static String [] nutrients = new String [] {
+//            "Health benefits of eating zviyo include helping with weight loss, lowering blood cholesterol levels, regulating blood sugar levels especially for those who suffer from diabetes"
+//    };
 
 }

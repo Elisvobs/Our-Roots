@@ -1,9 +1,9 @@
 package com.elisvobs.roots.model;
 
 public class Additive {
-    public String name;
+    public int name;
 
-    public Additive(String name) {
+    public Additive(int name) {
         this.name = name;
     }
 }

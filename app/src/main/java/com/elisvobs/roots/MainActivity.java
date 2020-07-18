@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnRe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle(R.string.trad);
 
         boolean isTablet = getResources().getBoolean(R.bool.is_tablet);
         if (! isTablet){
@@ -72,6 +73,9 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnRe
             return true;
         } else if (id == R.id.action_settings) {
             startActivity(new Intent(this, LanguageActivity.class));
+            return true;
+        } else if (id == R.id.action_credits) {
+            startActivity(new Intent(this, CreditsActivity.class));
             return true;
         } else if (id == R.id.action_about) {
             startActivity(new Intent(this, AboutActivity.class));

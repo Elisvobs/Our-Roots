@@ -7,58 +7,58 @@
     android:layout_height="match_parent"
     tools:context=".AdditiveActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/list_add"/>
-
-<!--    <ImageSwitcher-->
-<!--        android:id="@+id/switcher"-->
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/recycler_view"-->
 <!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_centerVertical="true"-->
-<!--        android:layout_margin="@dimen/activity_vertical_margin"-->
-<!--        android:padding="@dimen/activity_vertical_margin"-->
+<!--        android:layout_height="match_parent"-->
 <!--        app:layout_constraintBottom_toBottomOf="parent"-->
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--        tools:listitem="@layout/list_add"/>-->
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/linear"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/switcher"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/switcher"-->
-<!--        app:layout_constraintStart_toStartOf="@id/switcher"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/switcher">-->
+    <ImageSwitcher
+        android:id="@+id/switcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:padding="@dimen/activity_vertical_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-<!--        <Button-->
-<!--            android:id="@+id/previous"-->
-<!--            style="?android:attr/buttonBarButtonStyle"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:onClick="switchImage"-->
-<!--            android:text="@string/previous" />-->
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/switcher"
+        app:layout_constraintEnd_toEndOf="@id/switcher"
+        app:layout_constraintStart_toStartOf="@id/switcher"
+        app:layout_constraintBottom_toTopOf="@id/switcher">
 
-<!--        <Button-->
-<!--            android:id="@+id/next"-->
-<!--            style="?android:attr/buttonBarButtonStyle"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:onClick="switchImage"-->
-<!--            android:text="@string/next" />-->
+        <Button
+            android:id="@+id/previous"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="switchImage"
+            android:text="@string/previous" />
 
-<!--    </LinearLayout>-->
+        <Button
+            android:id="@+id/next"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="switchImage"
+            android:text="@string/next" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
