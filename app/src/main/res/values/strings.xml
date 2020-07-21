@@ -18,7 +18,7 @@
     <string name="en">English</string>
     <string name="nr">Ndebele</string>
     <string name="sn">Shona</string>
-    <string name="action_cancel">Cancel</string>
+    <string name="cancel">Cancel</string>
     <string name="language_settings">Change Language</string>
     <string name="lang_dialog_title">Choose Language</string>
     <string name="about">About</string>
@@ -34,12 +34,13 @@
     <string name="baobab">Baobab seeds</string>
     <string name="legume_flour">Legume flour</string>
     <string name="credits">Credits</string>
-    <string name="eula">LICENSE AGREEMENT</string>
-    <string name="privacy">PRIVACY POLICY</string>
+    <string name="eula">License Agreement</string>
+    <string name="privacy">Privacy Policy</string>
     <string name="license">Software License Agreement</string>
     <string name="accept">Accept</string>
     <string name="refuse">Refuse</string>
     <string name="policy">Privacy Policy</string>
-    <string name="thanks">AMAZING THANKS FOR SHARING CONTENT</string>
+    <string name="thanks">AMAZING THANKS FOR SHARING CONTENT!</string>
     <string name="copy">Copyright Credits</string>
+    <string name="none" />
 </resources>

@@ -56,7 +56,7 @@ public class LanguageActivity extends AppCompatActivity {
                         default: //By default set to english
                             break;
                     }
-                }).setNegativeButton(R.string.action_cancel,
+                }).setNegativeButton(R.string.cancel,
                 (dialog, whichButton) -> finish()).create().show();
     }
 

@@ -9,28 +9,14 @@ import android.widget.ImageView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.elisvobs.roots.utils.DataManager;
+
 public class AdditiveActivity extends AppCompatActivity {
     //    AdditiveAdapter adapter;
     ImageSwitcher switcher;
-    int[] ADDITIVES = {
-            R.drawable.soda,
-            R.drawable.hacha,
-            R.drawable.pumpkin,
-            R.drawable.tsunga,
-            R.drawable.peanut,
-            R.drawable.baobab,
-            R.drawable.legume_flour
-    };
-    int[] ADDITIVE_NAMES = {
-            R.string.soda,
-            R.string.hacha,
-            R.string.pumpkin,
-            R.string.tsunga_seeds,
-            R.string.peanut,
-            R.string.baobab,
-            R.string.legume_flour
-    };
     int currentIndex = -1;
+    private int[] mAdditiveImages = DataManager.getInstance().getAdditiveImages();
+    private int[] mAdditiveNames = DataManager.getInstance().getAdditiveNames();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +31,11 @@ public class AdditiveActivity extends AppCompatActivity {
 
         switcher = findViewById(R.id.switcher);
         switcher.setFactory(() -> {
-            ImageView image = new ImageView(getApplicationContext());
+            ImageView image = new ImageView(this);
             image.setScaleType(ImageView.ScaleType.CENTER_CROP);
             image.setLayoutParams(new ImageSwitcher.LayoutParams(
                     ActionBar.LayoutParams.WRAP_CONTENT,
-                    ActionBar.LayoutParams.WRAP_CONTENT
-                    )
-            );
+                    ActionBar.LayoutParams.WRAP_CONTENT));
             return image;
         });
     }
@@ -62,19 +46,21 @@ public class AdditiveActivity extends AppCompatActivity {
             case R.id.previous:
                 if (currentIndex > 0) {
                     currentIndex = currentIndex - 1;
-                    switcher.setBackgroundResource(ADDITIVES[currentIndex]);
-                    switcher.setLabelFor(ADDITIVE_NAMES[currentIndex]);
-                    setTitle(ADDITIVE_NAMES[currentIndex]);
-//                    switcher.setBackgroundResource(DataManager.getInstance().getAdditiveImages()[currentIndex]);
+//                    switcher.setBackgroundResource(ADDITIVES[currentIndex]);
+//                    switcher.setLabelFor(ADDITIVE_NAMES[currentIndex]);
+//                    setTitle(ADDITIVE_NAMES[currentIndex]);
+                    switcher.setBackgroundResource(mAdditiveImages[currentIndex]);
+                    switcher.setLabelFor(mAdditiveNames[currentIndex]);
+                    setTitle(mAdditiveNames[currentIndex]);
                 }
                 break;
 
             case R.id.next:
-                if (currentIndex < ADDITIVES.length - 1) {
+                if (currentIndex < mAdditiveImages.length - 1) {
                     currentIndex = currentIndex + 1;
-                    switcher.setBackgroundResource(ADDITIVES[currentIndex]);
-                    switcher.setLabelFor(ADDITIVE_NAMES[currentIndex]);
-                    setTitle(ADDITIVE_NAMES[currentIndex]);
+                    switcher.setBackgroundResource(mAdditiveImages[currentIndex]);
+                    switcher.setLabelFor(mAdditiveNames[currentIndex]);
+                    setTitle(mAdditiveNames[currentIndex]);
                 }
                 break;
         }

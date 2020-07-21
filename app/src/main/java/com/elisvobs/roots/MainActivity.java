@@ -2,10 +2,13 @@ package com.elisvobs.roots;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnRe
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private Bundle bundle = new Bundle();
     private FragmentTransaction fragmentTransaction;
+    private AlertDialog.Builder mBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,11 +78,8 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnRe
         } else if (id == R.id.action_settings) {
             startActivity(new Intent(this, LanguageActivity.class));
             return true;
-        } else if (id == R.id.action_credits) {
-            startActivity(new Intent(this, CreditsActivity.class));
-            return true;
         } else if (id == R.id.action_about) {
-            startActivity(new Intent(this, AboutActivity.class));
+            showDialog();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -97,6 +98,63 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnRe
         fragmentTransaction.replace(R.id.place_holder, fragment, VIEWPAGER_FRAGMENT);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    public void onClick(View view) {
+        int id = view.getId();
+        switch (id) {
+            case R.id.lic:
+                licenseDialog();
+                break;
+            case R.id.priv:
+                privacyDialog();
+                break;
+            case R.id.cred:
+                creditsDialog();
+                break;
+        }
+    }
+
+    private void build(int p) {
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(p, null);
+        mBuilder.setView(dialogView);
+    }
+
+    private void dialogComponents(int p) {
+        mBuilder.setTitle(getResources().getString(p))
+                .setPositiveButton(R.string.accept, (dialog, whichButton) -> showDialog())
+                .setNegativeButton(R.string.refuse, (dialog, whichButton) -> showDialog())
+                .create().show();
+    }
+
+    private void showDialog() {
+        mBuilder = new AlertDialog.Builder(this);
+        build(R.layout.dialog_about);
+        mBuilder.setTitle(getResources().getString(R.string.none))
+                .setPositiveButton(R.string.cancel, (dialog, whichButton)
+                -> onBackPressed())
+                .create().show();
+    }
+
+    private void licenseDialog() {
+        mBuilder = new AlertDialog.Builder(this);
+        build(R.layout.dialog_license);
+        dialogComponents(R.string.license);
+    }
+
+    private void privacyDialog() {
+        mBuilder = new AlertDialog.Builder(this);
+        build(R.layout.dialog_privacy);
+        dialogComponents(R.string.policy);
+    }
+
+    private void creditsDialog() {
+        mBuilder = new AlertDialog.Builder(this);
+        build(R.layout.dialog_credits);
+        mBuilder.setTitle(getResources().getString(R.string.copy))
+                .setPositiveButton(R.string.thanks, (dialog, whichButton)
+                        -> showDialog()).create().show();
     }
 
 }

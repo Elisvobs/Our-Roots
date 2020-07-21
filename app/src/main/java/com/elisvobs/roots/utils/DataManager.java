@@ -8,7 +8,24 @@ import java.util.List;
 
 public class DataManager {
     private List<Additive> mAdditives = new ArrayList<>();
-    private int [] ADDITIVES = {};
+    int[] ADDITIVES = {
+            R.drawable.soda,
+            R.drawable.hacha,
+            R.drawable.pumpkin,
+            R.drawable.tsunga_seed,
+            R.drawable.peanut,
+            R.drawable.baobab,
+            R.drawable.legume_flour
+    };
+    int[] ADDITIVE_NAMES = {
+            R.string.soda,
+            R.string.hacha,
+            R.string.pumpkin,
+            R.string.tsunga_seeds,
+            R.string.peanut,
+            R.string.baobab,
+            R.string.legume_flour
+    };
 
     public static DataManager getInstance() {
         DataManager ourInstance = new DataManager();
@@ -18,12 +35,16 @@ public class DataManager {
         return ourInstance;
     }
 
-    public List<Additive> getAdditiveNames() {
-        return mAdditives;
-    }
+//    public List<Additive> getAdditives() {
+//        return mAdditives;
+//    }
 
     public int[] getAdditiveImages() {
         return ADDITIVES;
+    }
+
+    public int[] getAdditiveNames() {
+        return ADDITIVE_NAMES;
     }
 
     private void initImages() {}

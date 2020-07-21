@@ -39,14 +39,14 @@ public abstract class CheckBoxesFragment extends Fragment {
         return view;
     }
 
-    public abstract String[] getContents(int index);
+    public abstract String [] getContents(int index);
 
-    private void setUpCheckBoxes(String[] contents, ViewGroup container, boolean[] checkedBoxes) {
+    private void setUpCheckBoxes(String [] contents, ViewGroup container, boolean [] checkedBoxes) {
         int i = 0;
         for (String content: contents){
             mCheckBoxes[i]  = new CheckBox(requireActivity());
             mCheckBoxes[i].setPadding(8,16,8,16);
-            mCheckBoxes[i].setTextSize(20f);
+            mCheckBoxes[i].setTextSize(18f);
             mCheckBoxes[i].setText(content);
             container.addView(mCheckBoxes[i]);
 

@@ -9,9 +9,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AboutActivity extends AppCompatActivity {
-    private AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    private LayoutInflater inflater = this.getLayoutInflater();
-    private View dialogView;
+    private AlertDialog.Builder builder;
+    private LayoutInflater inflater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,22 +23,25 @@ public class AboutActivity extends AppCompatActivity {
 
     @SuppressLint("InflateParams")
     private void showDialog() {
-        dialogView = inflater.inflate(R.layout.activity_about, null);
+        builder = new AlertDialog.Builder(this);
+        inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.dialog_about, null);
         builder.setView(dialogView);
 
-        builder.setTitle(getResources().getString(R.string.app_name))
-                .setPositiveButton(R.string.eula, (dialog, whichButton) -> {
-                    licenseDialog();
-                })
-                .setNegativeButton(R.string.privacy, (dialog, whichButton) -> {
-                    privacyDialog();
-                })
+        builder.setTitle("")
+//                .setPositiveButton(R.string.eula, (dialog, whichButton) -> {
+//                    licenseDialog();
+//                })
+//                .setNegativeButton(R.string.privacy, (dialog, whichButton) -> {
+//                    privacyDialog();
+//                })
                 .create().show();
     }
 
     @SuppressLint("InflateParams")
     private void licenseDialog() {
-        dialogView = inflater.inflate(R.layout.dialog_license, null);
+        builder = new AlertDialog.Builder(this);
+        final View dialogView = inflater.inflate(R.layout.dialog_license, null);
         builder.setView(dialogView);
 
         builder.setTitle(getResources().getString(R.string.license))
@@ -54,7 +56,8 @@ public class AboutActivity extends AppCompatActivity {
 
     @SuppressLint("InflateParams")
     private void privacyDialog() {
-        dialogView = inflater.inflate(R.layout.dialog_privacy, null);
+        builder = new AlertDialog.Builder(this);
+        final View dialogView = inflater.inflate(R.layout.dialog_privacy, null);
         builder.setView(dialogView);
 
         builder.setTitle(getResources().getString(R.string.policy))
@@ -67,17 +70,16 @@ public class AboutActivity extends AppCompatActivity {
                 .create().show();
     }
 
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        onBackPressed();
-//        return true;
-//    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
-//    @Override
-//    public void onBackPressed() {
-//        super.onBackPressed();
-//        startActivity(new Intent(this, MainActivity.class));
-//        finish();
-//    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
 }
