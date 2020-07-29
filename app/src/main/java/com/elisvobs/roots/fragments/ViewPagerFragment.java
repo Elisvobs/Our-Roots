@@ -1,4 +1,4 @@
-package com.elisvobs.roots.utils;
+package com.elisvobs.roots.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,8 +13,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.elisvobs.roots.R;
-import com.elisvobs.roots.fragments.DirectionsFragment;
-import com.elisvobs.roots.fragments.IngredientsFragment;
 import com.elisvobs.roots.model.Recipes;
 import com.google.android.material.tabs.TabLayout;
 
@@ -23,24 +21,23 @@ public class ViewPagerFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        int index = getArguments() != null
-                ? getArguments().getInt(KEY_RECIPE_INDEX) : 0;
-        Toast.makeText(requireActivity(), Recipes.names[index],
-                Toast.LENGTH_SHORT).show();
-        requireActivity().setTitle(Recipes.names[index]);
-
-        View view = inflater.inflate(R.layout.fragment_viewpager,
-                container,false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        int index = getArguments() != null ? getArguments().getInt(KEY_RECIPE_INDEX) : 0;
+        Toast.makeText(getActivity(), Recipes.names[index], Toast.LENGTH_SHORT).show();
+        getActivity().setTitle(Recipes.names[index]);
+        View view = inflater.inflate(R.layout.fragment_viewpager, container,false);
 
         final IngredientsFragment ingredientsFragment = new IngredientsFragment();
-        addIndex(index, ingredientsFragment);
-
+        Bundle bundle = new Bundle();
+        bundle.putInt(KEY_RECIPE_INDEX, index);
+        ingredientsFragment.setArguments(bundle);
         final DirectionsFragment directionsFragment = new DirectionsFragment();
-        addIndex(index, directionsFragment);
+        bundle = new Bundle();
+        bundle.putInt(KEY_RECIPE_INDEX, index);
+        directionsFragment.setArguments(bundle);
 
         ViewPager viewPager = view.findViewById(R.id.viewPager);
-        viewPager.setAdapter(new FragmentPagerAdapter(requireActivity().getSupportFragmentManager()) {
+        viewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @NonNull
             @Override
             public Fragment getItem(int position) {
@@ -65,16 +62,10 @@ public class ViewPagerFragment extends Fragment {
         return view;
     }
 
-    private void addIndex(int index, Fragment fragment) {
-        Bundle bundle = new Bundle();
-        bundle.putInt(KEY_RECIPE_INDEX, index);
-        fragment.setArguments(bundle);
-    }
-
     @Override
     public void onStop() {
         super.onStop();
-        requireActivity().setTitle(getResources().getString(R.string.trad));
+        getActivity().setTitle(getResources().getString(R.string.trad));
     }
 
 }

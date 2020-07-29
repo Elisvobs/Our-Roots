@@ -17,8 +17,7 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(getLayoutId(),
-                parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(getLayoutId(), parent, false);
         return new ListViewHolder(view);
     }
 
@@ -34,9 +33,7 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter {
         return Recipes.names.length;
     }
 
-    protected abstract void onRecipeSelected(int index);
-
-    private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView mTextView;
         private ImageView mImageView;
         private int mIndex;
@@ -48,7 +45,7 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(this);
         }
 
-        void bindView(int position) {
+        void bindView(int position){
             mIndex = position;
             mTextView.setText(Recipes.names[position]);
             mImageView.setImageResource(Recipes.resourceIds[position]);
@@ -58,7 +55,8 @@ public abstract class RecyclerAdapter extends RecyclerView.Adapter {
         public void onClick(View v) {
             onRecipeSelected(mIndex);
         }
-
     }
+
+    protected abstract void onRecipeSelected(int index);
 
 }

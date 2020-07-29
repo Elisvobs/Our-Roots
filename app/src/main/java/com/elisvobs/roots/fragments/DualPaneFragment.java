@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentManager;
 
 import com.elisvobs.roots.R;
 import com.elisvobs.roots.model.Recipes;
-import com.elisvobs.roots.utils.ViewPagerFragment;
 
 public class DualPaneFragment extends Fragment {
     private static final String INGREDIENTS_FRAGMENT = "ingredients_fragment";
@@ -22,44 +21,42 @@ public class DualPaneFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        int index = getArguments() != null ? getArguments().getInt(
-                ViewPagerFragment.KEY_RECIPE_INDEX) : 0;
-        Toast.makeText(requireActivity(), Recipes.names[index],
-                Toast.LENGTH_SHORT).show();
-        requireActivity().setTitle(Recipes.names[index]);
-
+        int index = getArguments() != null ? getArguments().getInt(ViewPagerFragment.KEY_RECIPE_INDEX) : 0;
+        Toast.makeText(getActivity(), Recipes.names[index], Toast.LENGTH_SHORT).show();
+        getActivity().setTitle(Recipes.names[index]);
         View view = inflater.inflate(R.layout.fragment_dualpane, container,false);
 
-        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        FragmentManager fragmentManager = getChildFragmentManager();
 
         IngredientsFragment savedIngredientsFragment = (IngredientsFragment) fragmentManager.
                 findFragmentByTag(INGREDIENTS_FRAGMENT);
         if (savedIngredientsFragment == null){
             IngredientsFragment ingredientsFragment = new IngredientsFragment();
-            transactFragment(index, fragmentManager, ingredientsFragment);
+            Bundle bundle = new Bundle();
+            bundle.putInt(ViewPagerFragment.KEY_RECIPE_INDEX, index);
+            ingredientsFragment.setArguments(bundle);
+            fragmentManager.beginTransaction().add(R.id.leftPlaceholder, ingredientsFragment,
+                    INGREDIENTS_FRAGMENT).commit();
         }
 
         DirectionsFragment savedDirectionsFragment = (DirectionsFragment) fragmentManager.
                 findFragmentByTag(DIRECTIONS_FRAGMENT);
         if (savedDirectionsFragment == null){
             DirectionsFragment directionsFragment = new DirectionsFragment();
-            transactFragment(index, fragmentManager, directionsFragment);
+            Bundle bundle = new Bundle();
+            bundle.putInt(ViewPagerFragment.KEY_RECIPE_INDEX, index);
+            directionsFragment.setArguments(bundle);
+            fragmentManager.beginTransaction().add(R.id.rightPlaceholder, directionsFragment,
+                    DIRECTIONS_FRAGMENT).commit();
         }
-        return view;
-    }
 
-    private void transactFragment(int index, FragmentManager fragmentManager, Fragment fragment) {
-        Bundle bundle = new Bundle();
-        bundle.putInt(ViewPagerFragment.KEY_RECIPE_INDEX, index);
-        fragment.setArguments(bundle);
-        fragmentManager.beginTransaction().add(R.id.rightPlaceholder, fragment,
-                DIRECTIONS_FRAGMENT).commit();
+        return view;
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        requireActivity().setTitle(getResources().getString(R.string.trad));
+        getActivity().setTitle(getResources().getString(R.string.trad));
     }
 
 }

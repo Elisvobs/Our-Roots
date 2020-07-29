@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.elisvobs.roots.utils.DataManager;
 
-public class AdditiveActivity extends AppCompatActivity {
+public class Additive extends AppCompatActivity {
     //    AdditiveAdapter adapter;
     ImageSwitcher switcher;
     int currentIndex = -1;
@@ -30,14 +30,16 @@ public class AdditiveActivity extends AppCompatActivity {
 //        recyclerView.setAdapter(adapter);
 
         switcher = findViewById(R.id.switcher);
-        switcher.setFactory(() -> {
-            ImageView image = new ImageView(this);
-            image.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            image.setLayoutParams(new ImageSwitcher.LayoutParams(
-                    ActionBar.LayoutParams.WRAP_CONTENT,
-                    ActionBar.LayoutParams.WRAP_CONTENT));
-            return image;
-        });
+        switcher.setFactory(this::makeView);
+    }
+
+    private View makeView() {
+        ImageView image = new ImageView(this);
+        image.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        image.setLayoutParams(new ImageSwitcher.LayoutParams(
+                ActionBar.LayoutParams.WRAP_CONTENT,
+                ActionBar.LayoutParams.WRAP_CONTENT));
+        return image;
     }
 
     public void switchImage(View view) {
@@ -75,7 +77,7 @@ public class AdditiveActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, Home.class));
         finish();
     }
 

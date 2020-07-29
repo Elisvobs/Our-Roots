@@ -3,37 +3,40 @@ package com.elisvobs.roots.model;
 import com.elisvobs.roots.R;
 
 public class Recipes {
-    public static String [] names = new String [] {
-            "Sadza",
+    public static String[] names = new String[] {
+            "Sadza/Isitshwala",
             "Sadza Rezviyo",
-            "Mowa",
+            "Mowa/Imbuya",
             "Mowa in Peanut Butter",
             "Mutsine",
-            "Nyevhe",
+            "Nyevhe/Ulude",
             "Dried Nyevhe",
-            "Muboora",
-            "Nhanga",
-            "Nhopi",
+            "Muboora/Ibhobola",
+            "Nhanga/Ithanga",
+            "Nhopi/Inhopi",
             "Makwaya",
             "Mabumbe",
-            "Nyenje",
+            "Nyenje/Idelele",
             "Derere Rechipudzi",
+//            "Derere Rechipudzi/Idelele lamathanga",
             "Okra Soup",
             "Derere Renama",
-            "Nyamatepo",
-            "Bupwe",
-            "Tsunga",
+//            "Derere Renama/Idelele inama",
+            "Nyamatepo/Umdlothi",
+            "Bupwe/Idelele",
+            "Tsunga/Umbhida",
             "Munyemba",
-            "Nyemba",
+            "Nyemba/Indumba",
             "Legume Buns",
             "Cowpea Fritters",
             "Rupiza",
             "Mutakura",
-            "Mushroom",
+            "Howa/Amakhowa",
+//            "Mushroom (Howa/Amakhowa)",
             "Nhedzi",
     };
 
-    public static int [] resourceIds = new int []{
+    public static int[] resourceIds = new int[]{
             R.drawable.sadza,
             R.drawable.zviyo,
             R.drawable.amaranth,
@@ -63,7 +66,7 @@ public class Recipes {
             R.drawable.nhedzi
     };
 
-    public static String [] ingredients = new String []{
+    public static String[] ingredients = new String[]{
             "Maize meal/Cassava Flour`Water",
             "Sorghum/Millet/Wheat meal`Water",
             "Mowa leaves`Water`Cooking oil`Salt`Tomatoes",
@@ -75,7 +78,7 @@ public class Recipes {
             "Nhanga`Water`(Salt optional)",
             "Manhanga/mashamba`Water`Salt`Peanut butter`Sorghum/millet/maize meal`(Sugar optional)",
             "Pumpkin seeds`Water`Salt",
-            "Roasted Pumpkin seeds`Water`Pumpkin leaves",
+            "Sun-dried Pumpkin seeds`Water`Pumpkin leaves",
             "Nyenje leaves (fresh or dried)`Salt`Soda/utyora`Tomatoes",
             "Okra`Water`Salt`Soda`Tomatoes",
             "Okra`Water`Salt`Flour`Peanut butter",
@@ -93,7 +96,7 @@ public class Recipes {
             "Nhedzi/Tsvuketsvuke/Chihombiro`Salt`Water`Tomatoes`Peanut butter",
     };
 
-    public static String [] directions = new String [] {
+    public static String[] directions = new String[] {
             "Boil clean water.`Add small quantities of maize meal and stir.`Continue adding mealie meal and stirring, making sure there are no lumps until it becomes a thick porridge.`Let the porridge boil for ~15 - 20 minutes.`Add more mealie meal in small quantities and stir.`Stir till all the mealie meal has mixed into the porridge.`Reduce the heat and let sadza cook slowly.`Stir again a minutes before serving.",
             "Put ~150g of the millet/sorghum/wheat meal into the pot.`Add just enough cold water to make a paste.`Add boiling water ~700ml into the pot and stir whilst on the stove.`Bring it to the boil. (If it's too thick add more boiling water. If it's too thin, make a paste again in a separate plate then pour it into the pot).`As soon as it starts boiling, close pot, reduce heat. `Let it simmer for ~20 minutes.`Add the remaining millet meal a bit at a time, mixing well after each addition. `Then close the pot and let it simmer again for 5 minutes.`A few minutes before serving, stir again. `Serve warm with vegetables, beef, poultry, fish or sour milk",
             "Wash leaves in warm water.`Boil the leaves for not more than 10 minutes`Remove the leaves from the pot into a plate`Put cooking oil into the pot and heat for ~3 minutes`Remove excess water from vegetables and put them into pre-heated cooking oil`Add sliced tomatoes and mix lightly`Add flavouring and salt to taste`Add a small quantity of water`Boil for ~5 minutes",
@@ -105,7 +108,7 @@ public class Recipes {
             "Wash the pumpkin.`Slice the pumpkin and remove the seeds.`Put the sliced pumpkin into a saucepan with little water and boil till tender.`Salt may be added.`Serve warm or cold.",
             "Slice the pumpkin, peel it and remove the seeds.`Put the sliced pumpkin into a saucepan with little water and boil till tender, stirring constantly with a wooden spoon.`Add a little sorghum/millet/maize meal and mix thoroughly to make a thick paste.`Add a pinch of salt and peanut butter then continue to mix.`Reduce heat and simmer for 5 - 10 minutes.",
             "Roast the dried pumpkin seeds with a little water and salt.`Stir continuously until the water evaporates and the seeds are dry.",
-            "Pound roasted dried pumpkin seeds until a fine paste is obtained.`Add little water and shape into balls.`Bake the balls wrapped in pumpkin leaves until soft and tasty",
+            "Remove clean and sun-dried pumpkin seeds. Roast the seeds until brownish and pound the roasted seeds using pestle and mortar. Grind the seeds using grinding stones i.e. guyo and huyo like in peanut butter until a fine paste is obtained.`Add little water and mould into balls.`Consume with a vegetable or meat sauce",
             "Put water, soda, salt and sliced tomatoes in a saucepan and boil.`Stir vigorously and continuously with a wooden spoon for about 15 minutes.`Add sliced nyenje leaves and stir thoroughly.`Reduce heat and simmer for 3 - 5 minutes.",
             "Wash okra pods in cold water.`Cut the pods into thin slices.`Put water, salt and soda in a saucepan and bring to the boil.`Add the sliced pods and boil for about 15 minutes.`Add sliced tomatoes to the saucepan.`Stir the vegetables with a wooden for about 3 - 5 minutes.`Add salt to taste.`Serve warm or cold",
             "Slice the okra pods.`Put water, salt and soda in a saucepan and bring to the boil.`Add the sliced pods and boil until tender.`Mix a little water and flour in a bowl to make a thin slurry.`Add the mixture to the okra and stir with a wooden spoon.`Add peanut butter.`Reduce heat and simmer for 7 - 10 minutes.",

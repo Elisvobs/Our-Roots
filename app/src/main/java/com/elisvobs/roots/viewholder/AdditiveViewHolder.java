@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.elisvobs.roots.AboutActivity;
+import com.elisvobs.roots.About;
 import com.elisvobs.roots.R;
 
 public class AdditiveViewHolder extends RecyclerView.ViewHolder {
@@ -29,7 +29,7 @@ public class AdditiveViewHolder extends RecyclerView.ViewHolder {
             case 0:
                 break;
             case 1:
-                intent = new Intent(context, AboutActivity.class);
+                intent = new Intent(context, About.class);
                 break;
         }
         context.startActivity(intent);

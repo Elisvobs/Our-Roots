@@ -11,7 +11,7 @@
     app:cardCornerRadius="8dp"
     app:cardUseCompatPadding="true"
     android:clipToPadding="false"
-    tools:context=".LanguageActivity">
+    tools:context=".Language">
 
     <RadioGroup
         android:id="@+id/radioGroup"

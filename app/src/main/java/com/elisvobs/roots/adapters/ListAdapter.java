@@ -4,7 +4,6 @@ import com.elisvobs.roots.R;
 import com.elisvobs.roots.fragments.ListFragment;
 
 public class ListAdapter extends RecyclerAdapter {
-
     private final ListFragment.OnRecipeSelectedInterface mListener;
 
     public ListAdapter(ListFragment.OnRecipeSelectedInterface listener) {
@@ -20,5 +19,4 @@ public class ListAdapter extends RecyclerAdapter {
     protected void onRecipeSelected(int index) {
         mListener.onListRecipeSelected(index);
     }
-
 }

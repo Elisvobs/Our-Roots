@@ -4,7 +4,6 @@ import com.elisvobs.roots.R;
 import com.elisvobs.roots.fragments.GridFragment;
 
 public class GridAdapter extends RecyclerAdapter {
-
     private final GridFragment.OnRecipeSelectedInterface mListener;
 
     public GridAdapter(GridFragment.OnRecipeSelectedInterface listener) {

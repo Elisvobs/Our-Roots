@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
 
-public class LanguageActivity extends AppCompatActivity {
+public class Language extends AppCompatActivity {
     private Configuration config;
 
     @Override

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:padding="8dp"
     app:contentPadding="8dp"
@@ -12,7 +12,7 @@
     app:cardCornerRadius="8dp"
     app:cardUseCompatPadding="true"
     android:clipToPadding="false"
-    tools:context=".MainActivity">
+    tools:context=".About">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:onClick="onClick"
                     android:gravity="end"
-                    android:text="@string/privacy"/>
+                    android:text="@string/policy"/>
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/Widget.MaterialComponents.Button.TextButton"

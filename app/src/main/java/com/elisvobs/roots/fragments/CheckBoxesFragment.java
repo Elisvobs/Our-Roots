@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.elisvobs.roots.R;
-import com.elisvobs.roots.utils.ViewPagerFragment;
 
 public abstract class CheckBoxesFragment extends Fragment {
     private static final String KEY_CHECKED_BOXES = "key_checked_boxes";
@@ -27,10 +26,8 @@ public abstract class CheckBoxesFragment extends Fragment {
 
         LinearLayout linearLayout = view.findViewById(R.id.checkBoxesLayout);
         String[] contents = getContents(index);
-
         mCheckBoxes = new CheckBox[contents.length];
         boolean[] checkedBoxes = new boolean[mCheckBoxes.length];
-
         if (savedInstanceState != null && savedInstanceState.getBooleanArray(KEY_CHECKED_BOXES) != null) {
             checkedBoxes = savedInstanceState.getBooleanArray(KEY_CHECKED_BOXES);
         }
@@ -39,24 +36,21 @@ public abstract class CheckBoxesFragment extends Fragment {
         return view;
     }
 
-    public abstract String [] getContents(int index);
+    public abstract String[] getContents(int index);
 
-    private void setUpCheckBoxes(String [] contents, ViewGroup container, boolean [] checkedBoxes) {
+    private void setUpCheckBoxes(String[] contents, ViewGroup container, boolean[] checkedBoxes){
         int i = 0;
         for (String content: contents){
-            mCheckBoxes[i]  = new CheckBox(requireActivity());
+            mCheckBoxes[i]  = new CheckBox(getActivity());
             mCheckBoxes[i].setPadding(8,16,8,16);
-            mCheckBoxes[i].setTextSize(18f);
+            mCheckBoxes[i].setTextSize(20f);
             mCheckBoxes[i].setText(content);
             container.addView(mCheckBoxes[i]);
-
             if (checkedBoxes[i]){
                 mCheckBoxes[i].toggle();
             }
-
             i++;
         }
-
     }
 
     @Override
@@ -67,9 +61,7 @@ public abstract class CheckBoxesFragment extends Fragment {
             stateOfCheckBoxes[i] = checkBox.isChecked();
             i++;
         }
-
         outState.putBooleanArray(KEY_CHECKED_BOXES, stateOfCheckBoxes);
         super.onSaveInstanceState(outState);
     }
-
 }
