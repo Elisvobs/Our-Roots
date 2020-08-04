@@ -53,7 +53,7 @@
     </string>
     <string name="thanks">AMAZING THANKS FOR SHARING CONTENT!</string>
     <string name="copy">Copyright Credits</string>
-    <string name="none"/>
+    <string name="none" />
     <string name="licenses" tools:ignore="TypographyOther"> "END-USER LICENSE AGREEMENT FOR ROOTS APP\n
         \nIMPORTANT PLEASE READ THE TERMS AND CONDITIONS OF THIS LICENSE AGREEMENT CAREFULLY\n
         \nMuriwo WeDzimbahwe\'s End-User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and Muriwo WeDzimbabwe.
@@ -93,4 +93,7 @@
         \nNhopi by Naturally Zimbabwean http://naturallyzimbabwean.com/wp-content/uploads/2016/09/nhopi.jpg/
         \nFinger Millet by Naturally Zimbabwean http://naturallyzimbabwean.com/wp-content/uploads/2016/09/finger-millet-zviyo.jpg/"
     </string>
+    <string name="ob_get_started">GET STARTED</string>
+    <string name="ob_header1">Traditional Recipes</string>
+    <string name="ob_desc1">Taking pride in our local foods</string>
 </resources>
