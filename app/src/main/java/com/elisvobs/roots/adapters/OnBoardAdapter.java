@@ -41,14 +41,14 @@ public class OnBoardAdapter extends PagerAdapter {
         View itemView = LayoutInflater.from(mContext).inflate(R.layout.onboard_item, container, false);
         OnBoardItem item = onBoardItems.get(position);
 
-        ImageView imageView = itemView.findViewById(R.id.iv_onboard);
-        TextView tv_title, tv_content;
-        tv_title = itemView.findViewById(R.id.tv_header);
-        tv_content = itemView.findViewById(R.id.tv_desc);
+        ImageView pic = itemView.findViewById(R.id.iv_onboard);
+        TextView title, content;
+        title = itemView.findViewById(R.id.tv_header);
+        content = itemView.findViewById(R.id.tv_desc);
 
-        tv_title.setText(item.getTitle());
-        imageView.setImageResource(item.getImageID());
-        tv_content.setText(item.getDescription());
+        title.setText(item.getTitle());
+        pic.setImageResource(item.getImageID());
+        content.setText(item.getDescription());
 
         container.addView(itemView);
         return itemView;

@@ -1,5 +1,6 @@
 package com.elisvobs.roots;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import com.elisvobs.roots.fragments.DualPaneFragment;
 import com.elisvobs.roots.fragments.GridFragment;
 import com.elisvobs.roots.fragments.ListFragment;
 import com.elisvobs.roots.fragments.ViewPagerFragment;
+import com.elisvobs.roots.utils.MyPreferences;
 
 public class Home extends AppCompatActivity implements
         ListFragment.OnRecipeSelectedInterface, GridFragment.OnRecipeSelectedInterface {
@@ -25,6 +27,11 @@ public class Home extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        boolean isFirstTime = MyPreferences.isFirst(this);
+        if (isFirstTime) {
+                show(this);
+        }
+
         boolean isTablet = getResources().getBoolean(R.bool.is_tablet);
         if (! isTablet){
             ListFragment savedFragment = (ListFragment) getSupportFragmentManager().findFragmentByTag(LIST_FRAGMENT);
@@ -46,6 +53,15 @@ public class Home extends AppCompatActivity implements
                 fragmentTransaction.commit();
             }
         }
+    }
+
+    public static void show (Context context) {
+        context.startActivity(new Intent(context, OnBoarding.class));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     @Override
